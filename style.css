@@ -1,0 +1,72 @@
+body {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: center;
+  font-size: x-large;
+  font-family: fantasy;
+  background-color: rgb(212, 148, 96);
+}
+
+h1,
+h2 {
+  color: brown;
+}
+
+.boxtab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player-box {
+  align-items: center;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.Tabellone {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.even {
+  color: rgb(116, 37, 37);
+  background-color: bisque;
+  display: table-cell;
+  vertical-align: inherit;
+}
+
+.odd {
+  color: rgb(219, 141, 24);
+  background-color: bisque;
+  display: table-cell;
+  vertical-align: inherit;
+}
+.cell {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 25px;
+}
+
+#extractBtn {
+  margin-top: 2rem;
+  border-radius: 20px;
+  padding: 1vh;
+  font-size: large;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
+    sans-serif;
+  background-color: brown;
+  color: rgb(219, 141, 24);
+}
