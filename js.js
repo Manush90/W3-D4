@@ -1,5 +1,7 @@
-const dimTabellone = 76;
+const boardSize = 76;
 const numeriGiocatore = 24;
+const extractedNumbers = new Set();
+
 function populateBoard() {
   const boxTab = document.getElementById("boxTab");
   let currentNumber = 1;
@@ -7,7 +9,7 @@ function populateBoard() {
   for (let i = 0; i < 8; i++) {
     const row = boxTab.insertRow();
     for (currentNumber; currentNumber <= (i + 1) * 10; currentNumber++) {
-      if (currentNumber > dimTabellone) return;
+      if (currentNumber > boardSize) return;
       const cell = row.insertCell();
       cell.textContent = currentNumber;
       cell.classList.add("cell");
@@ -26,7 +28,7 @@ function generatePlayerNumbers() {
   const playerNumbersSet = new Set();
 
   while (playerNumbersSet.size < numeriGiocatore) {
-    const randomNumber = Math.floor(Math.random() * dimTabellone) + 1;
+    const randomNumber = Math.floor(Math.random() * boardSize) + 1;
     playerNumbersSet.add(randomNumber);
   }
 
@@ -39,8 +41,14 @@ function generatePlayerNumbers() {
     playerBox.appendChild(span);
   });
 }
+
 function extractNumber() {
-  const extractedNumber = Math.floor(Math.random() * 76) + 1;
+  let extractedNumber;
+  do {
+    extractedNumber = Math.floor(Math.random() * 76) + 1;
+  } while (extractedNumbers.has(extractedNumber));
+
+  extractedNumbers.add(extractedNumber);
   const extractedCell = document.getElementById(`cell-${extractedNumber}`);
   if (extractedCell) {
     extractedCell.style.backgroundColor = "yellow";
@@ -53,6 +61,7 @@ function extractNumber() {
     }
   }
 }
+
 const extractBtn = document.getElementById("extractBtn");
 extractBtn.addEventListener("click", extractNumber);
 
